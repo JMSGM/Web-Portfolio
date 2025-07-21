@@ -33,8 +33,6 @@ h1, h2 {
   margin-bottom: 1rem;
 }
 
-
-
 footer {
   background-color: #1a1a1a;
   color: white;
@@ -43,6 +41,7 @@ footer {
   margin-top: 3rem;
 }
 
+/*navigation bar*/
 nav{
     background-color: goldenrod;
     padding: 1rem;
@@ -65,4 +64,35 @@ nav{
 }
 .nav a:hover{
     color: #000000;
+}
+
+/* card for each project*/
+
+.project-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+.project-card{
+  background-color: #f1b307;
+  border: 1px solid #000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px #000;
+  transition: transform 0.2s ease;
+}
+.project-card a{
+  text-decoration: none;
+  color: #000;
+}
+
+
+.project-card:hover{
+  transform: translateY(-20px);
+  
+}
+.project-card a:visited{
+  text-decoration: none;
+  color: inherit;
 }
