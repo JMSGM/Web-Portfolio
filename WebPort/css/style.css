@@ -1,6 +1,5 @@
 html, body {
   height: 100%;
-  margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
@@ -9,24 +8,33 @@ html, body {
   line-height: 2;
 }
 
+html{
+  height: 100%;
+  background-image: url('../things/bg-pattern.jpg');
+  background-repeat: repeat;
+  background-size: 400px auto;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+
 header {
-  background-color: #f1b307;
-  color: #000000dc;
+  background-color: rgb(241, 179, 7, 0.6);
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 35rem 2rem;
 }
 
 body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: transparent;
 }
 
 main {
-  max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
-   flex: 1; 
+  flex: 1;
 }
 
 h1, h2 {
@@ -67,7 +75,6 @@ nav{
 }
 
 /* card for each project*/
-
 .project-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -80,19 +87,75 @@ nav{
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 16px #000;
-  transition: transform 0.2s ease;
 }
 .project-card a{
   text-decoration: none;
   color: #000;
 }
+/*skill cards*/
+.skill-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  padding: 2rem; 
+}
+.skill-card{
+  background-color: #f1b307;
+  border: 1px solid #000;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 16px #000;
+}
+.skill-card a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+.skill-card img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  
+}
 
 
+/*hover animation*/
 .project-card:hover{
   transform: translateY(-20px);
-  
 }
 .project-card a:visited{
   text-decoration: none;
   color: inherit;
+}
+
+/*card fade in*/
+.fade-in{
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+}
+.fade-in.show{
+  opacity: 1;
+  pointer-events: auto;
+
+  
+}
+
+.section-bg{
+  width: 100vw;
+  margin-left: calc(-1 * (100vw - 100%) / 2);
+  padding: 1rem 0;
+  background-color: #000;
+  text-align: center;
+  background-image: url(../things/p4bg.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+
 }
