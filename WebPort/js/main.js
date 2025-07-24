@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const fades = document.querySelectorAll('.fade-in');
+    const fades = document.querySelectorAll('.fade-in, .slide-banner');
 
     const options = { threshold:0.1};
 
