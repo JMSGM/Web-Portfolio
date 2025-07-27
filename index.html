@@ -9,34 +9,46 @@
 
 <body> 
     <div class="stripe-bg"></div>
+    
+    <div class="menu-stripe-bg"></div>
+
+    <div class="tile-background">
+        <div class = "tiles" id="tile-container"></div>
+    </div>
+
     <div class="crt">
         <div class="scan-bar">
             <div class="scan">
             </div>
         </div>
     </div>
-    <!--  
-    <nav>
-        <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-    -->
+
+    <video class="static-overlay" autoplay muted loop playsinline>
+        <source src="things/402107790_STATIC_NOISE_4k.mp4" type="video/mp4">
+    </video>
+    
     <header>
-            <div class="scrolling-banner">
+        <nav class="nav-bar">
+            <a href="#about" class="nav-button">About</a>
+            <a href="#project" class="nav-button">Project</a>
+            <a href="#skills" class="nav-button">Skills</a>
+            <a href="#contact" class="nav-button">Contact</a>
+            <a href="blank" class="nav-button">Blog</a>
+
+        </nav>
+
+        <div class="scrolling-banner">
                 <div class="marquee">
                     <h1 class="scrolling-text"> Welcome to my Portfolio !!  Welcome to my Portfolio !! Welcome to my Portfolio !! Welcome to my Portfolio !!Welcome to my Portfolio !!  Welcome to my Portfolio !! Welcome to my Portfolio !! Welcome to my Portfolio !!</h1>
                     <h1 class="scrolling-text"> Welcome to my Portfolio !!  Welcome to my Portfolio !! Welcome to my Portfolio !! Welcome to my Portfolio !! Welcome to my Portfolio !!  Welcome to my Portfolio !! Welcome to my Portfolio !! Welcome to my Portfolio !!</h1>
-
                 </div> 
-            </div>       
+            </div>
+ 
     </header>
 
     <main>
         <section>
-            <h2 class="section-bg slide-banner">About me</h2>
+            <h2 class="section-bg slide-banner" id="about">About me</h2>
                 <div class="about-grid">
                         <div class="about-card fade-in">
                             <h3>Hello! I'm Joseph Mathew Sagum,</h3> 
@@ -50,7 +62,7 @@
                     </div>
         </section>
         <section id="projects">
-            <h2 class="section-bg slide-banner">Projects</h2>
+            <h2 class="section-bg slide-banner" id="project">Projects</h2>
                 <div class="project-grid">
                         <div class="project-card fade-in">
                         <a href="https://github.com/JMSGM/Minesweeper_Project">
@@ -80,66 +92,49 @@
         </section>
 
         <section id="skills">
-            <h2 class="section-bg slide-banner">Skills</h2>
+            <h2 class="section-bg slide-banner" id="skills">Skills</h2>
                 <div class="skill-grid">
                     <div class="skill-card fade-in">
-                        <a>
                             <img src="things/javacon.png" alt="Skill icon">
-                            <h3>Java</h3> 
-                        </a>                        
+                            <h3>Java</h3>                       
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <img src="things/sqlcon.png" alt="Skill icon">
                             <h3>SQL</h3>
-                        </a>
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <h3>Python</h3>
-                        </a>
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <h3>HTML/CSS/JS</h3>
-                        </a>
 
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <h3>Git & GitHub</h3>
-                        </a>
 
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <h3>Linux</h3>
-                        </a>
-
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <h3>C</h3>
-                        </a>
                     </div>
                     
                     <div class="skill-card fade-in">
-                        <a>
                             <h3>etc</h3>
-                        </a>
                     </div>
 
                 </div>
         </section>
         
         <section>
-            <h2 class="section-bg slide-banner">Contacts & Socials</h2>
+            <h2 class="section-bg slide-banner" id="contact">Contacts & Socials</h2>
                 <div class="contact-grid">
 
                     <a class="contact-card fade-in"  href="https://www.linkedin.com/in/joseph-mathew-sagum-28769a256/">

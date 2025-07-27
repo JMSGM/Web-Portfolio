@@ -1,9 +1,15 @@
+/*=========General Layout==========*/
 @font-face {
   font-family: 'SkipStd';
-  src: url(..\things\fonts\FOT-SkipStd-B.otf);
+  src: url(things\fonts\FOT-SkipStd-B.otf);
   font-weight: normal;
   font-style: normal;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
@@ -12,7 +18,7 @@ html, body {
   margin: 0;
   padding: 0;
   line-height: 2;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html{
@@ -23,20 +29,30 @@ html{
   background-position: center top;
   background-attachment: fixed;
 }
+*, html {
+    scroll-behavior: smooth !important;
+}
 
 
 header {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box; 
   background-color: rgb(241, 179, 7, 0.6);
   padding: 40rem 0rem;
 }
 
+header, footer {
+  width: 100%;
+}
+
 body{
-  font-family: 'SkipStd';
+  font-family: 'SkipStd', Arial, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -45,13 +61,11 @@ body{
 }
 
 main {
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
   flex: 1;
-}
-
-h1, h2 {
-  margin-bottom: 1rem;
+  max-width: 1200px;
 }
 
 footer {
@@ -60,34 +74,10 @@ footer {
   text-align: center;
   padding: 1rem;
   margin-top: 3rem;
+  width: 100%;
 }
+/*=========Cards for each section==========*/
 
-/*navigation bar*/
-nav{
-    background-color: goldenrod;
-    padding: 1rem;
-    text-align: center;
-}
-
-.nav{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-.nav a{
-   color: white;
-   text-decoration: none;
-   font-weight: bold;
-   transition: color 0.3s ease;
-}
-.nav a:hover{
-    color: #000000;
-}
-
-/* card for each sectoions*/
 .project-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -106,7 +96,6 @@ nav{
 
 }
 
-/*skill cards*/
 .skill-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -115,7 +104,8 @@ nav{
 }
 .skill-card{
   width: 100px;
-  height: 100px;
+  height: 115px;
+  overflow: hidden;
   background-color: #f1b307;
   border: 1px solid #000;
   padding: 1rem;
@@ -123,7 +113,7 @@ nav{
   box-shadow: 0 2px 16px #000;
   transition: opacity 0.6s ease-out, transform 0.6s ease;
 }
-.skill-card a{
+.skill-card h3{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,7 +148,6 @@ nav{
   transition: opacity 0.6s ease-out, transform 0.6s ease;
 }
 
-
 .contact-grid{
   display: flex;
   flex-direction: column;
@@ -182,13 +171,12 @@ nav{
   color: inherit;
   transition: transform 0.3s ease;
 }
-
 .contact-card img{
   border-color: #000;
   width: 64px;
   height: 64px;
 }
-/*hover animation*/
+/*=========Hover animation==========*/
 .project-card:hover{
   transform: translateY(-20px);
 }
@@ -205,7 +193,7 @@ nav{
   color: inherit;
 }
 
-/*card fade in*/
+/*=========Fade in animation==========*/
 .fade-in{
   opacity: 0;
   transform: translateY(20);
@@ -217,7 +205,8 @@ nav{
   pointer-events: auto;  
 }
 
-/*Section | Banners*/
+/*=========Section background and Banners==========*/
+
 .section-bg{
   font-family: 'SkipStd';
   font-size: 50px;
@@ -256,19 +245,17 @@ background-image: repeating-linear-gradient(
 );
   background-size: 100% 50px;
   background-repeat: repeat;
-
+  scroll-margin-top: 100px;
 }
 
 .stripe-bg{
   position: fixed;
   top: 0;
-  right: 0;
+  right: 50px;
   width: 100px;
   height: 100%;
   z-index: -1;
   overflow-x: hidden;
-  transform: translateX(-100px);
-
   background-image: repeating-linear-gradient(
   to right,
   #007a3d 0px,
@@ -291,42 +278,85 @@ background-image: repeating-linear-gradient(
   #007a3d 60px,
   #007a3d 63px
 );
+  transform:  translateX(0%) scaleX(0) ;
+  transform-origin: middle;
+  animation: slidein 0.7s ease-out forwards;
+  animation-delay: .5s; 
+}
+
+.menu-stripe-bg{
+  position: absolute;
+  bottom: 75vh;
+  left: 0;
+  z-index: -1;
+  overflow-x: hidden;
+  width: 100%;
+  height: 130px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #007a3d 0px,
+    #007a3d 6px,
+    #009e49 6px,
+    #009e49 12px,
+    #fef6b2 12px,
+    #fef6b2 18px,
+    #e30613 18px,
+    #e30613 24px,
+    #f1872d 24px,
+    #f1872d 30px,
+    #f9c73d 40px,
+    #f9c73d 40px,  
+    #002b7a 45px,
+    #002b7a 51px,   
+    #7faafc 51px,
+    #0059ff 57px,
+    #0773ff 57px,
+    #25007a 63px
+);
+
+  transform:  translateX(0%) scaleX(0) ;
+  transform-origin: left;
+  animation: slidein 0.7s ease-out forwards;
+  animation-delay: .5s;
+}
+@keyframes slidein {
+  to{transform:  translateX(0%) scaleX(1);}
 }
 
 .scrolling-banner{  
   width: 100%;
-  overflow: hidden;
-  padding: 1rem 0;
+  overflow-x: hidden;
+  padding: 2rem 0rem;
 
-background-image: repeating-linear-gradient(
-  to bottom,
-  #007a3d 0px,
-  #007a3d 6px,
-  #009e49 6px,
-  #009e49 12px,
-  #fef6b2 12px,
-  #fef6b2 18px,
-  #e30613 18px,
-  #e30613 24px,
-  #f1872d 24px,
-  #f1872d 30px,
-  #f9c73d 30px,
-  #f9c73d 50px,  
-  #e2ae1f 50px,
-  #e2ae1f 60px,   
-  #cee8f09f 60px,
-  #5e5050e8 60px,
-  #7f8592 60px,
-  #4e4f52 70px,
-  #007a3d 70px,
-  #007a3d 80px
-);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #007a3d 0px,
+    #007a3d 6px,
+    #009e49 6px,
+    #009e49 12px,
+    #fef6b2 12px,
+    #fef6b2 18px,
+    #e30613 18px,
+    #e30613 24px,
+    #f1872d 24px,
+    #f1872d 30px,
+    #f9c73d 30px,
+    #f9c73d 50px,  
+    #e2ae1f 50px,
+    #e2ae1f 60px,   
+    #cee8f09f 60px,
+    #5e5050e8 60px,
+    #7f8592 60px,
+    #4e4f52 70px,
+    #007a3d 70px,
+    #007a3d 80px
+  );
 
 }
 
 .marquee{
   display: flex;
-  width: max-content;
+  min-width: max-content;
   animation: marquee 40s linear infinite;
 }
 
@@ -362,7 +392,7 @@ background-image: repeating-linear-gradient(
   opacity: 1;
   transform: translateX(0);
 }
-/*CRT*/
+/*=========CRT and Scanlines==========*/
 .crt {
   position: fixed;
   top: 0;
@@ -426,3 +456,96 @@ background-image: repeating-linear-gradient(
     opacity: 0;
   }
 }
+
+/*=========Nav Bar==========*/
+.nav-bar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;  
+  height: auto;
+  width: 350px;
+  top: 300px;
+  left: calc(50% - 175px);
+  gap: 1rem;
+  padding: 2rem ;
+  background-color: transparent; 
+  transform: translateX(0%) scaleX(0);
+  animation: slidein 0.7s ease-out forwards;
+  animation-delay: 1s;
+}
+.nav-button {
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 100%;
+  gap: 1rem;
+  border: #000 solid 1px;
+  border-radius: 5px;
+  background-color: #ffd416; 
+  text-align: center;
+}
+.nav-bar a{
+  text-decoration: none ;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-style: sans-serif;
+  -webkit-text-stroke: 0.5px #000;
+  color: #000;
+  margin: 0;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+  align-self: center;
+  width: 100%;
+}
+.nav-button:hover, .nav-button h1:hover {
+  overflow: hidden;
+  color: #fff;
+  -webkit-text-stroke: 0.5px #fff;
+  background-color: #2c2325;
+  cursor: pointer;
+  transition: .5s ease;
+}
+.nav-button:onclick{
+  transform:scale(100px);
+  scroll-behavior: smooth;
+}
+/*=========Static Overlay==========*/
+.static-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: .5;
+  z-index: 9995;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+
+  -webkit-mask-image: radial-gradient(circle at center, transparent 50%, rgb(0, 0, 0) 100%);
+  
+}
+/*=========Tiles background==========*/
+/* .tile-background {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  top: 100px;
+  display: flex;
+  height: 50rem;
+  width: 50rem;
+  justify-content: center;
+  align-items: center;
+  border: #000 2px solid;
+  z-index: 1;
+}
+.tiles {
+  width: 10%;
+  height: 10%;
+  border: 1px solid #000;
+  background-color: #f1b307;
+  
+} */
