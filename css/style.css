@@ -79,8 +79,9 @@ footer {
 /*=========Cards for each section==========*/
 
 .project-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:  center;
   gap: 2rem;
   padding: 1rem;
 }
@@ -93,18 +94,23 @@ footer {
   border-radius: 8px;
   box-shadow: 0 2px 16px #000;
   transition: opacity 0.6s ease-out, transform 0.6s ease;
-
+  width: clamp(260px, 200px, 320px);
 }
 
 .skill-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  padding: 2rem; 
+  padding: 1rem;
 }
 .skill-card{
-  width: 100px;
-  height: 115px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 130px;
   overflow: hidden;
   background-color: #f1b307;
   border: 1px solid #000;
@@ -114,21 +120,13 @@ footer {
   transition: opacity 0.6s ease-out, transform 0.6s ease;
 }
 .skill-card h3{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
   -webkit-text-stroke: .5px #000;
   background-color: #f1b307;
 }
 .skill-card img{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 40px;
   height: 40px;
-  
 }
 
 .about-grid{
@@ -136,8 +134,9 @@ footer {
   justify-content: center;
 }
 .about-card{
-  width: 700px;
-  height: 600px;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
   font-size: 20px;
   -webkit-text-stroke: .5px #000;
   background-color: #f1b307;
@@ -158,8 +157,8 @@ footer {
   display: flex;
   align-items: center;
   gap: 1rem;
-  width: 700px;
-  height: 80px;
+  width: 80%;
+  height: auto;
   font-size: 20px;
   -webkit-text-stroke: 0.5px #000;
   background-color: #f1b307;
