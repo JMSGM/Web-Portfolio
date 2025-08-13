@@ -45,6 +45,9 @@ header {
   box-sizing: border-box; 
   background-color: rgb(241, 179, 7, 0.6);
   padding: 40rem 0rem;
+  @media (max-width: 600px) {
+  header { padding: 8rem 0; }
+}
 }
 
 header, footer {
@@ -195,9 +198,10 @@ footer {
 /*=========Fade in animation==========*/
 .fade-in{
   opacity: 0;
-  transform: translateY(20);
+  transform: translateY(20px);
   pointer-events: none;
   transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, transform;
 }
 .fade-in.show{
   opacity: 1;
@@ -385,6 +389,7 @@ background-image: repeating-linear-gradient(
   opacity: 0;
   transform: translateX(50rem);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
 }
 
 .slide-banner.show {
@@ -548,3 +553,15 @@ background-image: repeating-linear-gradient(
   background-color: #f1b307;
   
 } */
+ /* mobile */
+ @media (max-width: 768px){
+   .fade-in,
+  .slide-banner {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
+  header { padding: 20rem 0 !important; }
+ 
+ }
